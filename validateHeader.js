@@ -26,7 +26,6 @@ const validateHeaders = (url) => {
     };
   
     const request = client.request(url, { method: 'HEAD' }, handleResponse);
-  
     request.on('error', (err) => reject(err));
     request.end();
   });
