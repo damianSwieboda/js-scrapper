@@ -1,4 +1,5 @@
 const getHTML = require('./getHtml')
+const validateHeader = require('./validateHeader')
 const findLastListItem = require('./findLastListItem')
 const validateURL = require('./validateURL')
 
@@ -18,6 +19,7 @@ const main = async () => {
   }
 
   try {
+    await validateHeader(validatedURL)
     const html = await getHTML(validatedURL);
     const lastListItem = findLastListItem(html);
     if (lastListItem) {
