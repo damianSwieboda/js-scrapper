@@ -21,9 +21,7 @@ const validateHeaders = (url, maxPageSizeInMegabytes) => {
         // I have read that this is rare, but I have encountered websites that did not have this header when creating this scrapper.
         // For example: https://rebus.community/
         return resolve(true); // Resolving successfully as improvised solution
-      }  
-
-    
+      }      
 
       const maxPageSizeInBytes = maxPageSizeInMegabytes * 1024 * 1024
         if (contentLength > maxPageSizeInBytes) {
