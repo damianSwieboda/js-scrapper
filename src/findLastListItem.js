@@ -17,8 +17,7 @@ const findLastListItem = (html) => {
   
   const liMatches = [...targetUlInnerHTML.matchAll(/<li[^>]*>(.*?)<\/li>/gs)];
   const lastLi = liMatches[liMatches.length - 1];
-  return lastLi ? lastLi[1].replace(/<[^>]*>/g, '').trim() : null;
+  return lastLi ? lastLi[1].replaceAll(/<[^>]*>/g, '').trim() : null;
 };
 
 module.exports = findLastListItem;
-

@@ -18,18 +18,13 @@ const findLastListItem = require('./src/findLastListItem');
     }
   };
 
-  let validatedURL;
   try {
     log('Validating URL...');
-    validatedURL = validateURL(url);
+    const validatedURL = validateURL(url);
     log(`Validated URL: ${validatedURL}`);
-  } catch (error) {
-    console.error(error.message);
-    process.exit(1);
-  }
 
-  try {
     log('Validating headers...');
+
     await validateHeader(validatedURL, maxPageSizeInMegabytes);
     log('Headers validated successfully.');
 
