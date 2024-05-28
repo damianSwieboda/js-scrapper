@@ -1,6 +1,5 @@
 const validateURL = (url) => {
   let parsedURL;
-
   try {
     parsedURL = new URL(url);
   } catch (err) {
