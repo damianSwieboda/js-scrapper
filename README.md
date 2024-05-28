@@ -4,8 +4,7 @@
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Features](#features)
-5. [Customization Options](#customization-options)
-6. [Stay in Touch](#stay-in-touch)
+5. [Stay in Touch](#stay-in-touch)
 
 ## Overview
 Application is designed for web scraping purposes. It fetches HTML content from a specified URL, analyzes the structure to find the primary unordered list with direct children, and retrieves the last list item. The implementation adheres strictly to using the standard JavaScript libraries available in the Node.js runtime environment.
@@ -27,10 +26,11 @@ node main.js [options] <URL>
 ```
 Replace [options] with any of the following flags and <URL> with the URL of the website you want to scrape:
 
-- --disable-custom-headers: Disable custom headers for fetching HTML.
-- --max-page-size-in-megabytes <value>: Set the maximum page size in megabytes (default is 15 MB).
+- --disable-custom-headers: By default, custom headers are enabled. Use this flag to disable them, potentially altering the scraping results.
+- --max-page-size-in-megabytes <value>: Sets a limit on the page size in megabytes for fetching HTML content (default is 15 MB). Accepts both integers and floats.
 - --verbose: Enable detailed output for debugging purposes.
-
+- --help: Provides usage instructions and details about available options for running the application.
+  
 Example usage:
 ```bash
 node main.js --max-page-size-in-megabytes 5 https://www.example.com/
@@ -41,12 +41,6 @@ node main.js --max-page-size-in-megabytes 5 https://www.example.com/
 - HTML Fetching: Retrieves HTML content from a specified URL.
 - Data Extraction: Identifies and returns the last list item from the primary unordered list found on the page.
 - Configurability: Offers command-line options for adjusting scraping parameters.
-
-## Customization Options
-Command-Line Options
---disable-custom-headers: By default, custom headers are enabled. Use this flag to disable them, potentially altering the scraping results.
---max-page-size-in-megabytes <value>: Sets a limit on the page size in megabytes for fetching HTML content. Accepts both integers and floats.
---help: Provides usage instructions and details about available options for running the application.
 
 ## Stay in touch
 - Author Damian Świeboda
