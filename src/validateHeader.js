@@ -16,7 +16,7 @@ const validateHeaders = (url, maxPageSizeInMegabytes) => {
       } 
       
       const contentLength = parseInt(response.headers['content-length']);
-      if (isNaN(contentLength)) {
+      if (!contentLength) {
         // COMMENT FOR RECRUITER: I am uncertain about handling when there is no Content-Length in headers.
         // I have read that this is rare, but I have encountered websites that did not have this header when creating this scrapper.
         // For example: https://rebus.community/

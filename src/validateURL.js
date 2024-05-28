@@ -13,7 +13,6 @@ const validateURL = (url) => {
   
   // TODO Add SSRF protection? 
 
-  // Basic XSS protection
   const params = parsedURL.searchParams;
   params.forEach((value, key) => {
     if (containsXSS(value)) {
@@ -25,9 +24,8 @@ const validateURL = (url) => {
 };
 
 function containsXSS(input) {
-  // reggex match common XSS patterns
   const regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
   return regex.test(input);
 }
 
-module.exports = validateURL
+module.exports = validateURL;
