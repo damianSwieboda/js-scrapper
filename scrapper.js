@@ -1,13 +1,11 @@
+const validateURL = require('./validateURL')
+const validateHeader = require('./validateHeader')
 const getHTML = require('./getHtml')
 const findLastListItem = require('./findLastListItem')
-const validateURL = require('./validateURL')
+const parseArgs = require('./parseArgs')
 
 const main = async () => {
-  const url = process.argv[2];
-  if (!url) {
-    console.error('Please provide a URL as a command line argument.');
-    process.exit(1);
-  }
+  const { url, disableCustomHeaders, maxPageSizeInMegabytes } = parseArgs();
 
   let validatedURL;
   try {
@@ -18,7 +16,8 @@ const main = async () => {
   }
 
   try {
-    const html = await getHTML(validatedURL);
+    await validateHeader(validatedURL, maxPageSizeInMegabytes)
+    const html = await getHTML(validatedURL, !disableCustomHeaders);
     const lastListItem = findLastListItem(html);
     if (lastListItem) {
       console.log('Last list item:', lastListItem);
