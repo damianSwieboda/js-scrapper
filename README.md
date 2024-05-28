@@ -1,5 +1,3 @@
-<h1 align="center">Web Scrapper</h1>
-
 ## Table of Contents
 
 1. [Overview](#overview)
@@ -10,16 +8,17 @@
 6. [Stay in Touch](#stay-in-touch)
 
 ## Overview
-This Node.js application is designed for web scraping purposes. It fetches HTML content from a specified URL, analyzes the structure to find the primary unordered list with direct children, and retrieves the last list item.
+Application is designed for web scraping purposes. It fetches HTML content from a specified URL, analyzes the structure to find the primary unordered list with direct children, and retrieves the last list item. The implementation adheres strictly to using the standard JavaScript libraries available in the Node.js runtime environment.
 
 ## Installation
-Ensure you have Node.js installed on your machine. Clone the repository and install dependencies using npm:
+Ensure you have Node.js (version >= 20.11.1) and npm (version >= 10.2.4) installed on your machine. Clone the repository using npm:
 
 ```bash
 $ git clone https://github.com/damianSwieboda/js-scrapper.git
 $ cd js-scrapper
 $ npm install
 ```
+
 ## Usage
 To run the application, use the following command structure:
 
@@ -38,8 +37,8 @@ node main.js --max-page-size-in-megabytes 5 https://www.example.com/
 ```
 
 ## Features
+- Validation: Validates the URL and custom headers.
 - HTML Fetching: Retrieves HTML content from a specified URL.
-- Validation: Validates the URL format and custom headers.
 - Data Extraction: Identifies and returns the last list item from the primary unordered list found on the page.
 - Configurability: Offers command-line options for adjusting scraping parameters.
 
