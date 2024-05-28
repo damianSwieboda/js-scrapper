@@ -16,7 +16,6 @@ const validateURL = (url) => {
   // Basic XSS protection
   const params = parsedURL.searchParams;
   params.forEach((value, key) => {
-    // Check for potential XSS attacks
     if (containsXSS(value)) {
       throw new Error(`Potential XSS attack detected in parameter '${key}'.`);
     }

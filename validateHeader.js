@@ -1,7 +1,7 @@
 const http = require('http');
 const https = require('https');
 
-const validateHeaders = (url) => {
+const validateHeaders = (url, maxPageSizeInMegabytes) => {
   return new Promise((resolve, reject) => {
     const client = url.startsWith('https') ? https : http;
 
@@ -15,9 +15,7 @@ const validateHeaders = (url) => {
         return reject(new Error('Unsupported content type'));
       } 
       
-      
       const contentLength = parseInt(response.headers['content-length']);
-      
       if (isNaN(contentLength)) {
         // COMMENT FOR RECRUITER: I am uncertain about handling when there is no Content-Length in headers.
         // I have read that this is rare, but I have encountered websites that did not have this header when creating this scrapper.
@@ -25,10 +23,12 @@ const validateHeaders = (url) => {
         return resolve(true); // Resolving successfully as improvised solution
       }  
 
-      const maxPageSize = 15 * 1024 * 1024
-      if (contentLength > maxPageSize) {
-        return reject(new Error(`Page size exceeds the maximum limit of ${maxPageSize/1048576} MB.`));
-      }
+    
+
+      const maxPageSizeInBytes = maxPageSizeInMegabytes * 1024 * 1024
+        if (contentLength > maxPageSizeInBytes) {
+          return reject(new Error(`Page size exceeds the maximum limit of ${maxPageSizeInMegabytes} MB.`));
+        }
 
       return resolve(true);
     };
