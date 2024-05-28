@@ -27,9 +27,9 @@ node main.js [options] <URL>
 ```
 Replace [options] with any of the following flags and <URL> with the URL of the website you want to scrape:
 
---disable-custom-headers: Disable custom headers for fetching HTML.
---max-page-size-in-megabytes <value>: Set the maximum page size in megabytes (default is 15 MB).
---verbose: Enable detailed output for debugging purposes.
+- --disable-custom-headers: Disable custom headers for fetching HTML.
+- --max-page-size-in-megabytes <value>: Set the maximum page size in megabytes (default is 15 MB).
+- --verbose: Enable detailed output for debugging purposes.
 
 Example usage:
 ```bash
