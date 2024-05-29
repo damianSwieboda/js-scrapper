@@ -12,8 +12,7 @@ const validateHeaders = async (url, maxPageSizeInMegabytes) => {
   
   const contentLength = parseInt(response.headers.get('content-length'));
   if (!contentLength) {
-    // Handling case where there is no Content-Length header
-    // You can decide what to do here; returning true might be appropriate depending on your application logic
+    // I wasn't sure how to solve the situation, so I just return true as improvised solution
     return true;
   }
   

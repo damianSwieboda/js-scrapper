@@ -10,8 +10,6 @@ const validateURL = (url) => {
     throw new Error('Invalid URL protocol. Only HTTP and HTTPS protocols are supported.');
   }
   
-  // TODO Add SSRF protection? 
-
   const params = parsedURL.searchParams;
   params.forEach((value, key) => {
     if (containsXSS(value)) {
@@ -23,8 +21,8 @@ const validateURL = (url) => {
 };
 
 function containsXSS(input) {
-  const regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-  return regex.test(input);
+  const XSS_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+  return XSS_REGEX.test(input);
 }
 
 module.exports = validateURL;

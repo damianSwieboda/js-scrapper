@@ -24,7 +24,6 @@ const findLastListItem = require('./src/findLastListItem');
     log(`Validated URL: ${validatedURL}`);
 
     log('Validating headers...');
-
     await validateHeader(validatedURL, maxPageSizeInMegabytes);
     log('Headers validated successfully.');
 
@@ -37,7 +36,7 @@ const findLastListItem = require('./src/findLastListItem');
     if (lastListItem) {
       console.log('Last list item:', lastListItem);
     } else {
-      console.log('No unordered list found or list is empty.');
+      console.log('No unordered list found or last list element is empty.');
     }
   } catch (error) {
     console.error('Error:', error);
